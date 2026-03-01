@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # FastCP Installer
-# https://github.com/rehmatworks/fastcp
+# https://github.com/ScriptElite/fastcp
 #
 # Copyright (c) 2024-present Rehmat Alam
 # Licensed under the MIT License
@@ -279,9 +279,9 @@ elif [[ -f ./fastcp && -f ./fastcp-agent ]]; then
 else
     # Download from GitHub releases
     if [[ "$FASTCP_VERSION" == "latest" ]]; then
-        RELEASE_URL="https://github.com/rehmatworks/fastcp/releases/latest/download"
+        RELEASE_URL="https://github.com/ScriptElite/fastcp/releases/latest/download"
     else
-        RELEASE_URL="https://github.com/rehmatworks/fastcp/releases/download/${FASTCP_VERSION}"
+        RELEASE_URL="https://github.com/ScriptElite/fastcp/releases/download/${FASTCP_VERSION}"
     fi
     
     curl -fsSL "${RELEASE_URL}/fastcp-linux-${ARCH}" -o /opt/fastcp/bin/fastcp || error "Failed to download fastcp"
@@ -446,7 +446,7 @@ fi
 log "Installing phpMyAdmin..."
 PHPMYADMIN_VERSION="5.2.2"
 mkdir -p /opt/fastcp/phpmyadmin
-curl -fsSL "https://files.phpmyadmin.net/phpMyAdmin/${PHPMYADMIN_VERSION}/phpMyAdmin-${PHPMYADMIN_VERSION}-all-languages.tar.gz" | tar xz --strip-components=1 -C /opt/fastcp/phpmyadmin
+curl -fsSL "https://www.phpmyadmin.net/files/${PHPMYADMIN_VERSION}/phpMyAdmin-${PHPMYADMIN_VERSION}-all-languages.tar.gz" | tar xz --strip-components=1 -C /opt/fastcp/phpmyadmin
 
 # Generate phpMyAdmin blowfish secret
 PMA_SECRET=$(openssl rand -base64 32 | tr -dc 'a-zA-Z0-9' | head -c 32)
@@ -622,6 +622,6 @@ fi
 echo ""
 echo -e "${DIM}────────────────────────────────────────────────────────────────${NC}"
 echo -e "${DIM}  FastCP - Copyright (c) 2024-present Rehmat Alam${NC}"
-echo -e "${DIM}  https://github.com/rehmatworks/fastcp${NC}"
+echo -e "${DIM}  https://github.com/ScriptElite/fastcp${NC}"
 echo -e "${DIM}────────────────────────────────────────────────────────────────${NC}"
 echo ""
